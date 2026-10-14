@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CD Week · Manual de identidad · Computational Design Week</title>
+<link rel="stylesheet" href="cd-week.css">
+<style>
+/* estructura del manual (prefijo m-); las piezas de identidad vienen de cd-week.css (prefijo cdw-) */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:72px}
+body{margin:0}
+a{color:inherit}
+.m-wrap{max-width:1240px; margin:0 auto; padding:0 40px}
+.m-top{position:sticky; top:0; z-index:50; background:rgba(242,242,240,.84); backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2); border-bottom:1px solid var(--cdw-linea)}
+.m-top .m-wrap{display:flex; align-items:center; gap:20px; height:60px}
+.m-marca{display:flex; align-items:center; gap:10px; font:500 14px/1 var(--cdw-f-display); letter-spacing:-.01em; text-decoration:none; white-space:nowrap}
+.m-marca .cdw-monograma{--s:26px}
+.m-top nav{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; flex:1}
+.m-top nav a{font:500 12.5px/1 var(--cdw-f-texto); text-decoration:none; padding:8px 8px; border-radius:99px; color:var(--cdw-gris); white-space:nowrap}
+.m-top nav a:hover{background:#fff; color:var(--cdw-grafito)}
+.m-pausa{font:500 12px/1 var(--cdw-f-mono); letter-spacing:.06em; padding:9px 12px; border-radius:99px; border:1px solid var(--cdw-linea); background:#fff; color:var(--cdw-grafito); cursor:pointer; white-space:nowrap}
+
+/* portada */
+.m-portada{padding:72px 0 24px}
+.m-portada-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:40px}
+.m-portada h1{font:200 clamp(80px,13vw,184px)/.82 var(--cdw-f-display); letter-spacing:-.06em; margin:18px 0 0}
+.m-portada .m-lede{font-size:21px; margin-top:0}
+.m-meta{display:flex; flex-wrap:wrap; gap:28px; margin-top:28px; padding-top:18px; border-top:1px solid var(--cdw-linea)}
+.m-meta b{display:block; font:300 40px/1 var(--cdw-f-display); letter-spacing:-.03em}
+.m-meta span{font:500 11px/1.4 var(--cdw-f-mono); letter-spacing:.14em; text-transform:uppercase; color:var(--cdw-gris)}
+.m-aviso{margin-top:20px; padding:14px 18px; border-radius:16px; background:#fff; font-size:14px; color:var(--cdw-gris)}
+
+/* secciones */
+.m-sec{padding:104px 0 16px}
+.m-head{display:grid; grid-template-columns:200px 1fr; gap:24px; margin-bottom:40px}
+.m-num{font:500 12px/1.4 var(--cdw-f-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--cdw-gris); padding-top:14px; border-top:1px solid var(--cdw-grafito)}
+.m-titulo{font:300 52px/1.02 var(--cdw-f-display); letter-spacing:-.035em; margin:0}
+.m-lede{font:400 19px/1.5 var(--cdw-f-texto); color:var(--cdw-gris); max-width:64ch; margin:16px 0 0}
+.m-sub{margin:48px 0 18px; font:500 12px/1.4 var(--cdw-f-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--cdw-gris); display:flex; align-items:center; gap:14px}
+.m-sub::after{content:""; flex:1; height:1px; background:var(--cdw-linea)}
+.m-g2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.m-g3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+.m-g4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+.m-g5{display:grid; grid-template-columns:repeat(5,1fr); gap:14px}
+.m-nota{margin:12px 0 0; font-size:13.5px; color:var(--cdw-gris)}
+.cdw-tarjeta h3.m-h{margin:0 0 8px; font:400 22px/1.2 var(--cdw-f-display); letter-spacing:-.02em}
+.cdw-tarjeta p{margin:0 0 10px}
+.cdw-tarjeta p:last-child{margin-bottom:0}
+.m-lista{margin:0; padding-left:18px}
+.m-lista li{margin:5px 0}
+
+/* especificaciones */
+.m-spec{display:grid; grid-template-columns:150px 1fr; gap:8px 16px; margin:0; font-size:14px}
+.m-spec dt{font:500 10.5px/1.7 var(--cdw-f-mono); letter-spacing:.12em; text-transform:uppercase; color:var(--cdw-gris)}
+.m-spec dd{margin:0}
+.m-tabla{width:100%; border-collapse:collapse; background:#fff; border-radius:var(--cdw-r-xl); overflow:hidden; font-size:14px}
+.m-tabla th, .m-tabla td{padding:13px 16px; text-align:left; border-bottom:1px solid #EEEEEB; vertical-align:top}
+.m-tabla thead th{font:500 10.5px/1.5 var(--cdw-f-mono); letter-spacing:.12em; text-transform:uppercase; color:var(--cdw-gris); background:#FAFAF9}
+.m-tabla tr:last-child td{border-bottom:0}
+.m-tabla code, .m-code code, p code, li code{font:500 12.5px/1.5 var(--cdw-f-mono)}
+.m-ok{font:600 12px/1 var(--cdw-f-mono); padding:4px 7px; border-radius:6px; background:color-mix(in srgb, var(--cdw-menta) 45%, #fff)}
+.m-mal{font:600 12px/1 var(--cdw-f-mono); padding:4px 7px; border-radius:6px; background:color-mix(in srgb, var(--cdw-coral) 30%, #fff)}
+
+/* código copiable */
+.m-code{position:relative; margin:14px 0 0; background:var(--cdw-perla); border-radius:14px; padding:44px 18px 16px; overflow:auto; max-height:360px}
+.m-code pre{margin:0; white-space:pre-wrap; word-break:break-word}
+.m-copiar{position:absolute; right:10px; top:10px; font:500 11px/1 var(--cdw-f-mono); letter-spacing:.06em; padding:7px 10px; border-radius:99px; border:1px solid var(--cdw-linea); background:#fff; cursor:pointer; color:var(--cdw-grafito)}
+
+/* color */
+.m-paleta{display:grid; grid-template-columns:repeat(5,1fr); gap:14px}
+.m-paleta.m-8{grid-template-columns:repeat(8,1fr)}
+.m-color i{display:block; aspect-ratio:1.5; border-radius:16px; margin-bottom:10px; border:1px solid rgba(0,0,0,.06)}
+.m-color b{display:block; font:600 14px/1.3 var(--cdw-f-texto)}
+.m-color span{display:block; font:500 11.5px/1.5 var(--cdw-f-mono); color:var(--cdw-gris)}
+.m-prop{display:flex; height:64px; border-radius:16px; overflow:hidden; margin:6px 0 10px}
+.m-prop div{display:flex; align-items:flex-end; padding:10px 12px; font:500 11px/1 var(--cdw-f-mono); letter-spacing:.08em}
+.m-firma{height:72px; border-radius:16px; background:var(--cdw-firma); position:relative; overflow:hidden}
+
+/* tipografía */
+.m-escala > div{display:grid; grid-template-columns:170px 220px 1fr; gap:16px; align-items:baseline; padding:16px 0; border-bottom:1px solid #EEEEEB}
+.m-escala > div:last-child{border-bottom:0}
+.m-escala small{font:500 10.5px/1.5 var(--cdw-f-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--cdw-gris)}
+.m-escala .m-muestra{white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.m-familia .m-abc{font:300 64px/1 var(--cdw-f-display); letter-spacing:-.04em; margin:6px 0 14px}
+
+/* orbe y anatomía */
+.m-escena{position:relative; aspect-ratio:4/3; border-radius:var(--cdw-r-lg); background:var(--cdw-perla); overflow:hidden}
+.m-anatomia{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+.m-anatomia .m-escena{aspect-ratio:1}
+.m-anatomia .cdw-orbe{width:64%; left:18%; top:18%}
+.m-paso1 .cdw-orbe::before{filter:none} .m-paso1 .cdw-orbe::after{display:none} .m-paso1 .cdw-orbe > i{display:none}
+.m-paso2 .cdw-orbe::after{display:none} .m-paso2 .cdw-orbe > i{display:none}
+.m-paso3 .cdw-orbe > i{display:none}
+.m-pie{margin:10px 0 0; font-size:13.5px}
+.m-pie b{font:600 11px/1.4 var(--cdw-f-mono); letter-spacing:.1em; text-transform:uppercase; display:block; color:var(--cdw-gris)}
+
+/* íconos */
+.m-iconos{display:grid; grid-template-columns:repeat(6,1fr); gap:14px}
+.m-iconos > div{display:grid; justify-items:center; gap:10px; padding:20px 8px; background:#fff; border-radius:20px; text-align:center; font:500 10.5px/1.3 var(--cdw-f-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--cdw-gris)}
+.m-iconos .m-linea{color:var(--cdw-grafito)}
+.m-fila-iconos{display:flex; gap:18px; align-items:center; padding:24px}
+.m-rejilla{position:relative; width:168px; height:168px; border-radius:16px; background:#fff; color:var(--cdw-grafito); background-image:linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px); background-size:7px 7px; display:grid; place-items:center}
+.m-rejilla .cdw-ico{width:144px; height:144px; --ico-w:1.9; stroke-width:1.9}
+
+/* sí y no */
+.m-sino{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+.m-caso{background:#fff; border-radius:var(--cdw-r-xl); overflow:hidden}
+.m-caso .m-escena{border-radius:0; aspect-ratio:16/10}
+.m-caso > div:last-child{padding:16px 20px 20px; font-size:14px}
+.m-caso p{margin:8px 0 0}
+.m-logo-chico{gap:12px}
+.m-logo-chico > .cdw-orbe{width:50px}
+.m-logo-chico .cdw-logo-txt{font-size:27px}
+.m-logo-chico .cdw-logo-txt small{font-size:9px; margin-top:7px}
+.m-logo-chico .cdw-logo-txt small::before{width:16px}
+.m-tachado::after{content:""; position:absolute; inset:0; background:linear-gradient(to top right, transparent calc(50% - 1.5px), rgba(242,119,81,.9) calc(50% - 1.5px), rgba(242,119,81,.9) calc(50% + 1.5px), transparent calc(50% + 1.5px)); pointer-events:none; z-index:9}
+
+/* retícula */
+.m-columnas{display:grid; grid-template-columns:repeat(12,1fr); gap:20px; height:120px}
+.m-columnas i{background:color-mix(in srgb, var(--cdw-lila) 22%, #fff); border-radius:8px}
+.m-espacios{display:flex; align-items:flex-end; gap:14px; flex-wrap:wrap}
+.m-espacios div{display:grid; gap:8px; justify-items:center; font:500 10.5px/1.2 var(--cdw-f-mono); color:var(--cdw-gris)}
+.m-espacios i{display:block; background:var(--cdw-durazno); border-radius:3px}
+.m-radios{display:flex; gap:20px; flex-wrap:wrap}
+.m-radios div{display:grid; gap:8px; font:500 10.5px/1.3 var(--cdw-f-mono); color:var(--cdw-gris)}
+.m-radios i{display:block; width:110px; height:80px; background:#fff; border:1px solid var(--cdw-linea)}
+
+/* prompts */
+.m-prompts{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.m-prompt h3{margin:0 0 4px; font:400 20px/1.2 var(--cdw-f-display); letter-spacing:-.02em}
+.m-archivos{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.m-archivos div{background:#fff; border-radius:20px; padding:18px 20px; font-size:14px}
+.m-archivos code{display:block; font:600 13px/1.4 var(--cdw-f-mono); margin-bottom:6px}
+
+footer{padding:72px 0 80px; color:var(--cdw-gris); font-size:13.5px}
+footer .m-wrap{display:grid; grid-template-columns:1fr 1fr; gap:32px; border-top:1px solid var(--cdw-linea); padding-top:24px}
+
+@media (max-width:1100px){
+  .m-portada-grid,.m-g2,.m-prompts{grid-template-columns:1fr}
+  .m-g4,.m-sino,.m-g3,.m-archivos{grid-template-columns:1fr 1fr}
+  .m-g5{grid-template-columns:repeat(3,1fr)}
+  .m-iconos{grid-template-columns:repeat(3,1fr)}
+  .m-escala > div{grid-template-columns:150px 1fr}
+  .m-escala .m-muestra{grid-column:1 / -1}
+}
+@media (max-width:700px){
+  .m-wrap{padding:0 20px}
+  .m-head{grid-template-columns:1fr}
+  .m-titulo{font-size:40px}
+  .m-g4,.m-sino,.m-g3,.m-archivos,.m-anatomia{grid-template-columns:1fr 1fr}
+  .m-g5{grid-template-columns:1fr 1fr}
+  .m-g4.m-usos,.m-sino{grid-template-columns:1fr}
+  .m-paleta,.m-paleta.m-8{grid-template-columns:repeat(3,1fr)}
+  .m-spec{grid-template-columns:1fr; gap:2px}
+  .m-spec dd{margin-bottom:10px}
+  .cdw-hero{aspect-ratio:4/5}
+  .cdw-hero-txt{width:86%; top:auto; bottom:6%; transform:none}
+  .cdw-hero-esquina{top:7%; bottom:auto}
+  .cdw-banner{aspect-ratio:16/9; align-items:flex-start}
+  .cdw-banner-txt{padding-top:7%}
+  .cdw-banner-orbes{align-items:flex-end; padding-bottom:8%}
+  .cdw-banner-orbes .cdw-orbe{width:13%}
+  .cdw-banner-txt h3{font-size:28px}
+  .cdw-logo > .cdw-orbe{width:60px}
+  .cdw-logo-txt{font-size:34px}
+  .m-lienzo-barras{aspect-ratio:auto !important}
+  .m-lienzo-barras .cdw-barras{position:relative; grid-template-columns:1fr; gap:26px; padding:28px 8%}
+  .m-columnas{gap:6px}
+}
+
+/* exportación de piezas sueltas: ?pieza=<id> (ver scripts/exportar.mjs) */
+html.m-pieza, html.m-pieza body{background:var(--cdw-perla); overflow:hidden}
+html.m-pieza.m-transparente, html.m-pieza.m-transparente body{background:transparent}
+html.m-pieza body{display:grid; place-items:center}
+</style>
+</head>
+<body class="cdw-pagina">
+
+<header class="m-top">
+  <div class="m-wrap">
+    <a class="m-marca" href="#portada"><span class="cdw-monograma"><span class="cdw-orbe"></span></span>CD Week · Manual</a>
+    <nav aria-label="Secciones">
+      <a href="#esencia">Esencia</a><a href="#marca">Marca</a><a href="#color">Color</a><a href="#tipografia">Tipografía</a><a href="#graficos">Gráficos</a><a href="#iconos">Íconos</a><a href="#componentes">Componentes</a><a href="#datos">Datos</a><a href="#reticula">Retícula</a><a href="#movimiento">Movimiento</a><a href="#sharepoint">SharePoint</a><a href="#voz">Voz</a><a href="#reglas">Sí y no</a><a href="#ia">Para IA</a>
+    </nav>
+    <button class="m-pausa" id="m-pausa" type="button" aria-pressed="false">Pausar animación</button>
+  </div>
+</header>
+
+<main>
+<!-- ================= PORTADA ================= -->
+<section class="m-portada" id="portada">
+  <div class="m-wrap">
+    <div class="m-portada-grid">
+      <div>
+        <p class="cdw-etiqueta">Computational Design Week · Manual de identidad v1.0</p>
+        <h1>CD Week</h1>
+      </div>
+      <div>
+        <p class="m-lede">Luz difusa de color, trazo blanco preciso y mucho aire perla. Este manual explica cómo se ve, cómo se escribe y cómo se arma cada pieza de la Computational Design Week, de Computational Design LATAM y de la familia Design Technology.</p>
+        <div class="m-meta">
+          <div><b>D1</b><span>Variación Perla</span></div>
+          <div><b>9</b><span>Colores de luz</span></div>
+          <div><b>4</b><span>Familias de letra</span></div>
+          <div><b>14</b><span>Componentes</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cdw-hero" data-pieza="hero">
+      <div class="cdw-orbe o1"><i></i></div><div class="cdw-orbe o2"><i></i></div><div class="cdw-orbe o3"><i></i></div>
+      <div class="cdw-ruta" data-cdw-ruta></div>
+      <div class="cdw-hero-txt">
+        <p class="cdw-etiqueta">Computational Design · LATAM</p>
+        <h2>Hacemos visible lo que da forma a los proyectos.</h2>
+        <p>Simulación, diseño paramétrico, automatización y datos para los equipos de la región.</p>
+        <span class="cdw-boton">Conoce los servicios <span aria-hidden="true">→</span></span>
+      </div>
+      <p class="cdw-etiqueta cdw-hero-esquina">MX · CO · PA · AR</p>
+      <span class="cdw-ejemplo">Ejemplo</span>
+    </div>
+    <p class="m-aviso">Contenido de ejemplo: las personas, cifras, fechas y casos de este manual son ficticios y se marcan con «Ejemplo». No se usan logos ni marcas de la firma: la identidad es propia de la iniciativa.</p>
+  </div>
+</section>
+
+<!-- ================= 01 ESENCIA ================= -->
+<section class="m-sec" id="esencia">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">01 · Esencia</div>
+      <div>
+        <h2 class="m-titulo">Hacer visible lo invisible, con calma</h2>
+        <p class="m-lede">CD Week junta dos ideas: la luz difusa del análisis (sol, viento, flujo, datos) y el trazo preciso del diseño computacional. Los orbes de color son las fuerzas que no se ven; las líneas blancas son el modelo que las explica.</p>
+      </div>
+    </div>
+    <div class="m-g4">
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Sereno</span></p><p>Fondos perla, mucho aire y movimiento lento. Nada grita.</p></div>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Luminoso</span></p><p>Color que se siente como luz, no como pintura: difuso, con brillo y grano.</p></div>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Claro</span></p><p>Cada imagen dice de qué trata con un dibujo blanco. El texto siempre se lee.</p></div>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Preciso</span></p><p>Trazos finos, cifras grandes y etiquetas mono: el rigor del dato.</p></div>
+    </div>
+    <p class="m-sub">Las 10 reglas de oro</p>
+    <div class="m-g2">
+      <div class="cdw-tarjeta"><ol class="m-lista">
+        <li>Fondo perla <code>#F2F2F0</code> y tarjetas blancas. Nunca fondos oscuros.</li>
+        <li>El color vive en <b>orbes y campos difusos</b>, nunca en bloques planos ni en el texto.</li>
+        <li>Solo colores de la paleta: pasteles cálidos y fríos, sin neón ni saturados.</li>
+        <li>Encima del color van <b>trazos e íconos blancos</b>, finos y con sombra suave.</li>
+        <li>El texto va en grafito <code>#1D1E21</code>, sobre perla, blanco o pastilla blanca.</li>
+      </ol></div>
+      <div class="cdw-tarjeta"><ol class="m-lista" start="6">
+        <li>Títulos y cifras en grotesca <b>Light (300)</b> con tracking negativo.</li>
+        <li>Etiquetas en mono, mayúsculas y espaciadas.</li>
+        <li>Una sola palabra en itálica serif, solo dentro de las pastillas.</li>
+        <li>Esquinas redondas de 28 px, sin bordes ni sombras duras.</li>
+        <li>Los datos de ejemplo llevan la etiqueta «Ejemplo».</li>
+      </ol></div>
+    </div>
+    <p class="m-sub">Personalidad</p>
+    <div class="m-g2">
+      <div class="cdw-tarjeta"><h3 class="m-h">CD Week es</h3><p>Sereno, técnico sin ser frío, cálido sin ser infantil, editorial, generoso con el espacio, honesto con los datos.</p></div>
+      <div class="cdw-tarjeta"><h3 class="m-h">CD Week no es</h3><p>Neón, gamer, corporativo azul, oscuro, saturado, lleno de efectos, con íconos oscuros sobre auras, ni con fotos de stock.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 MARCA ================= -->
+<section class="m-sec" id="marca">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">02 · Marca</div>
+      <div>
+        <h2 class="m-titulo">Logotipo, familia y monograma</h2>
+        <p class="m-lede">Un orbe y el nombre en minúsculas. El orbe es la firma: la misma forma para todas las áreas, cada una con su temperatura de color.</p>
+      </div>
+    </div>
+    <div class="m-g2">
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Logotipo horizontal</span><span>Principal</span></p>
+        <div style="padding:26px 0 10px"><div class="cdw-logo" data-pieza="logotipo"><span class="cdw-orbe cdw-orbe--en-linea"><i></i></span><div class="cdw-logo-txt">computational<br>design<small>LATAM</small></div></div></div>
+        <dl class="m-spec" style="margin-top:22px">
+          <dt>Orbe</dt><dd>Diámetro = 1.8 × la altura de una línea del nombre (84 px con texto de 46 px). Coral, durazno, lila y cielo.</dd>
+          <dt>Nombre</dt><dd>«computational» / «design» en dos líneas, minúsculas, grotesca Light 300, tracking −4.5 %, interlínea 0.95.</dd>
+          <dt>Región</dt><dd>«LATAM» en mono 500, tracking +32 %, precedido por una raya de 28 px.</dd>
+          <dt>Separación</dt><dd>Orbe y texto separados por media altura del orbe (22 px a 84 px).</dd>
+          <dt>Área libre</dt><dd>Alrededor del logotipo, como mínimo la mitad del diámetro del orbe.</dd>
+          <dt>Tamaño mínimo</dt><dd>Orbe de 32 px en pantalla. Por debajo, usa el monograma.</dd>
+        </dl>
+      </div>
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Monograma · logo del sitio</span><span>128 · 64 · 40 · 24 px</span></p>
+        <div style="display:flex; align-items:flex-end; gap:22px; padding:16px 0 8px; flex-wrap:wrap">
+          <div class="cdw-monograma" style="--s:128px" data-pieza="monograma"><span class="cdw-orbe"><i></i></span><span>cd</span></div>
+          <div class="cdw-monograma" style="--s:64px"><span class="cdw-orbe"></span><span>cd</span></div>
+          <div class="cdw-monograma" style="--s:40px"><span class="cdw-orbe"></span><span>cd</span></div>
+          <div class="cdw-monograma" style="--s:24px"><span class="cdw-orbe"></span></div>
+        </div>
+        <dl class="m-spec" style="margin-top:22px">
+          <dt>Forma</dt><dd>Cuadrado con esquinas al 26 % del lado.</dd>
+          <dt>Fondo</dt><dd>Luz durazno → lila → cielo a 150°, con un orbe coral, lila, cobalto y durazno saliendo por la esquina inferior derecha.</dd>
+          <dt>Letras</dt><dd>«cd» en blanco, Light 300, al 36 % del lado, con sombra violeta muy suave.</dd>
+          <dt>24 px</dt><dd>Sin letras: solo la luz. Sirve de favicon y de logo del sitio en SharePoint.</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="cdw-tarjeta" style="margin-top:20px">
+      <p class="cdw-tarjeta-t"><span>Familia Design Technology</span><span>Misma forma, otra temperatura</span></p>
+      <div style="display:flex; flex-wrap:wrap; gap:26px 40px; align-items:center; padding:10px 0" data-pieza="familia-dt">
+        <div class="cdw-sublogo"><span class="cdw-orbe cdw-orbe--en-linea" style="--o1:var(--cdw-coral); --o2:var(--cdw-durazno); --o3:var(--cdw-lila); --o4:var(--cdw-cielo)"></span>computational design</div>
+        <div class="cdw-sublogo cdw-sublogo--dt"><span class="cdw-orbe cdw-orbe--en-linea"></span>design technology</div>
+        <div class="cdw-sublogo cdw-sublogo--bim"><span class="cdw-orbe cdw-orbe--en-linea"></span>bim</div>
+        <div class="cdw-sublogo cdw-sublogo--rc"><span class="cdw-orbe cdw-orbe--en-linea"></span>reality capture</div>
+      </div>
+      <p class="m-nota">Computational Design: de coral a cielo (todo el espectro). Design Technology: lila, cielo y durazno. BIM: cielo y cobalto (frío). Reality Capture: menta y cielo.</p>
+    </div>
+    <p class="m-sub">Usos incorrectos</p>
+    <div class="m-g4 m-usos">
+      <div class="m-caso"><div class="m-escena m-tachado" style="display:grid; place-items:center"><div class="cdw-logo m-logo-chico"><span class="cdw-orbe cdw-orbe--en-linea"><i></i></span><div class="cdw-logo-txt" style="color:var(--cdw-coral)">computational<br>design<small>LATAM</small></div></div></div><div><b>No pintes el nombre</b><p>El nombre siempre va en grafito (o en blanco sobre cobalto, solo si no hay otra opción).</p></div></div>
+      <div class="m-caso"><div class="m-escena m-tachado" style="display:grid; place-items:center"><div class="cdw-logo m-logo-chico"><span style="width:50px; height:50px; border-radius:50%; background:var(--cdw-coral); flex:none"></span><div class="cdw-logo-txt">computational<br>design<small>LATAM</small></div></div></div><div><b>No uses un círculo plano</b><p>El orbe siempre es difuso, con brillo y grano.</p></div></div>
+      <div class="m-caso"><div class="m-escena m-tachado" style="display:grid; place-items:center; background:#17181C"><div class="cdw-logo m-logo-chico" style="color:#F2F2F0"><span class="cdw-orbe cdw-orbe--en-linea"><i></i></span><div class="cdw-logo-txt">computational<br>design<small>LATAM</small></div></div></div><div><b>No lo pongas sobre oscuro</b><p>CD Week vive sobre perla o blanco; tampoco va encima de fotos.</p></div></div>
+      <div class="m-caso"><div class="m-escena m-tachado" style="display:grid; place-items:center"><div class="cdw-logo m-logo-chico"><span class="cdw-orbe cdw-orbe--en-linea"><i></i></span><div class="cdw-logo-txt" style="font:700 27px/.95 Georgia,serif; letter-spacing:0">Computational<br>Design<small>LATAM</small></div></div></div><div><b>No cambies la letra</b><p>Ni negritas, ni serif, ni mayúsculas iniciales en el nombre.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 COLOR ================= -->
+<section class="m-sec" id="color">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">03 · Color</div>
+      <div>
+        <h2 class="m-titulo">Perla, grafito y una luz de nueve tonos</h2>
+        <p class="m-lede">Los neutros hacen el trabajo y la luz pone la luz. Los colores de la luz van siempre difusos, mezclados en degradados y orbes, ordenados de cálido a frío.</p>
+      </div>
+    </div>
+    <p class="m-sub">Neutros</p>
+    <div class="m-paleta m-8" data-pieza="neutros">
+      <div class="m-color"><i style="background:var(--cdw-perla)"></i><b>Perla</b><span>#F2F2F0</span><span>RGB 242 242 240</span><span>Fondo de página</span></div>
+      <div class="m-color"><i style="background:var(--cdw-blanco)"></i><b>Blanco</b><span>#FFFFFF</span><span>RGB 255 255 255</span><span>Tarjetas, pastillas, trazos</span></div>
+      <div class="m-color"><i style="background:var(--cdw-niebla)"></i><b>Niebla</b><span>#ECECEE</span><span>RGB 236 236 238</span><span>Superficie secundaria, chips</span></div>
+      <div class="m-color"><i style="background:var(--cdw-hero)"></i><b>Fondo Hero</b><span>#ECECEA</span><span>RGB 236 236 234</span><span>Detrás de los orbes</span></div>
+      <div class="m-color"><i style="background:var(--cdw-linea)"></i><b>Línea</b><span>#DEDEDA</span><span>RGB 222 222 218</span><span>Divisores finos</span></div>
+      <div class="m-color"><i style="background:var(--cdw-lente)"></i><b>Fondo lentes</b><span>#E3DFDD</span><span>RGB 227 223 221</span><span>Mapa de lentes</span></div>
+      <div class="m-color"><i style="background:var(--cdw-grafito)"></i><b>Grafito</b><span>#1D1E21</span><span>RGB 29 30 33</span><span>Texto, botón primario</span></div>
+      <div class="m-color"><i style="background:var(--cdw-gris)"></i><b>Gris</b><span>#5E6166</span><span>RGB 94 97 102</span><span>Texto secundario, etiquetas</span></div>
+    </div>
+    <p class="m-sub">Luz (de cálido a frío)</p>
+    <div class="m-paleta" data-pieza="luz">
+      <div class="m-color"><i style="background:var(--cdw-mantequilla)"></i><b>Mantequilla</b><span>#F1E17C</span><span>RGB 241 225 124</span><span>Luz</span></div>
+      <div class="m-color"><i style="background:var(--cdw-durazno)"></i><b>Durazno</b><span>#F8A082</span><span>RGB 248 160 130</span><span>Luz cálida</span></div>
+      <div class="m-color"><i style="background:var(--cdw-coral)"></i><b>Coral</b><span>#F27751</span><span>RGB 242 119 81</span><span>Luz cálida, acento</span></div>
+      <div class="m-color"><i style="background:var(--cdw-rosa)"></i><b>Rosa</b><span>#EE8FB4</span><span>RGB 238 143 180</span><span>Transición</span></div>
+      <div class="m-color"><i style="background:var(--cdw-lila)"></i><b>Lila</b><span>#B7A6EE</span><span>RGB 183 166 238</span><span>Transición, anillos</span></div>
+      <div class="m-color"><i style="background:var(--cdw-cielo)"></i><b>Cielo</b><span>#85BBEF</span><span>RGB 133 187 239</span><span>Luz fría</span></div>
+      <div class="m-color"><i style="background:var(--cdw-cobalto)"></i><b>Cobalto</b><span>#3F6FE0</span><span>RGB 63 111 224</span><span>Profundidad, foco</span></div>
+      <div class="m-color"><i style="background:var(--cdw-menta)"></i><b>Menta</b><span>#7FD6C2</span><span>RGB 127 214 194</span><span>Luz fría, Reality Capture</span></div>
+      <div class="m-color"><i style="background:var(--cdw-violeta)"></i><b>Violeta</b><span>#5B539B</span><span>RGB 91 83 155</span><span>Lentes, enlaces</span></div>
+    </div>
+    <div class="m-g2" style="margin-top:28px">
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Proporción</span><span>60 · 30 · 10</span></p>
+        <div class="m-prop"><div style="flex:60; background:var(--cdw-perla)">PERLA Y BLANCO 60%</div><div style="flex:30; background:var(--cdw-grafito); color:#fff">GRAFITO 30%</div><div style="flex:10; background:var(--cdw-firma)"></div></div>
+        <p class="m-nota">El 10 % de luz se nota mucho porque es luz. Si una pieza tiene más color que perla, sobra color.</p>
+      </div>
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Degradado firma</span><span>Orden espectral</span></p>
+        <div class="m-firma" data-pieza="firma"><div class="cdw-grano" style="opacity:.35"></div></div>
+        <p class="m-nota">Mantequilla → durazno → coral → rosa → lila → cielo → cobalto → menta. Se usa en barras de dato, separadores y fondos de banda; nunca en texto.</p>
+      </div>
+    </div>
+    <p class="m-sub">Contraste (WCAG 2.1)</p>
+    <table class="m-tabla">
+      <thead><tr><th>Combinación</th><th>Contraste</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td>Grafito sobre perla / blanco</td><td>14.9 : 1 / 16.7 : 1</td><td><span class="m-ok">SÍ</span> Todo el texto</td></tr>
+        <tr><td>Gris sobre perla / blanco</td><td>5.6 : 1 / 6.2 : 1</td><td><span class="m-ok">SÍ</span> Texto secundario y etiquetas</td></tr>
+        <tr><td>Grafito sobre cualquier color de la luz</td><td>6.0 : 1 (coral) a 12.5 : 1 (mantequilla)</td><td><span class="m-ok">SÍ</span> Texto sobre campos de color, si hace falta</td></tr>
+        <tr><td>Violeta sobre perla</td><td>5.9 : 1</td><td><span class="m-ok">SÍ</span> Enlaces de color</td></tr>
+        <tr><td>Blanco sobre cobalto</td><td>4.6 : 1</td><td><span class="m-ok">SÍ</span> Texto blanco, solo en este caso</td></tr>
+        <tr><td>Blanco sobre luz clara (durazno, lila, cielo, menta…)</td><td>1.3 : 1 a 2.8 : 1</td><td><span class="m-mal">NO</span> para texto. Solo trazos, íconos y el «cd» del monograma</td></tr>
+        <tr><td>Gris sobre luz</td><td>1.4 : 1 a 4.7 : 1</td><td><span class="m-mal">NO</span> Usa grafito o una pastilla blanca</td></tr>
+        <tr><td>Cobalto sobre perla</td><td>4.1 : 1</td><td><span class="m-mal">NO</span> para texto chico; sí para íconos y foco</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= 04 TIPOGRAFÍA ================= -->
+<section class="m-sec" id="tipografia">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">04 · Tipografía</div>
+      <div>
+        <h2 class="m-titulo">Grotesca ligera, mono precisa y una itálica</h2>
+        <p class="m-lede">La grotesca Light da la calma; la mono, el rigor técnico; la itálica serif, un acento humano que aparece una sola vez por pieza.</p>
+      </div>
+    </div>
+    <div class="m-g4">
+      <div class="cdw-tarjeta m-familia"><p class="cdw-tarjeta-t"><span>Display</span></p><div class="m-abc">Aa 62</div><p><b>Inter Display Light 300</b><br>Alternativa: Neue Haas Grotesk Display Light. En Windows: Segoe UI Variable Display Light.</p><p class="cdw-secundario">Títulos, cifras, logotipo.</p></div>
+      <div class="cdw-tarjeta m-familia"><p class="cdw-tarjeta-t"><span>Texto</span></p><div class="m-abc" style="font:400 56px/1.1 var(--cdw-f-texto); letter-spacing:-.02em">Aa</div><p><b>Inter 400 · 500 · 600</b><br>En Windows y SharePoint: Segoe UI.</p><p class="cdw-secundario">Párrafos, botones, pastillas.</p></div>
+      <div class="cdw-tarjeta m-familia"><p class="cdw-tarjeta-t"><span>Mono</span></p><div class="m-abc" style="font:500 48px/1.2 var(--cdw-f-mono); letter-spacing:0">A0</div><p><b>JetBrains Mono 500</b><br>En Windows: Cascadia Mono.</p><p class="cdw-secundario">Etiquetas, fechas, códigos, escalas.</p></div>
+      <div class="cdw-tarjeta m-familia"><p class="cdw-tarjeta-t"><span>Acento</span></p><div class="m-abc" style="font:italic 400 64px/1 var(--cdw-f-serif); letter-spacing:-.01em">Aa</div><p><b>Instrument Serif Italic</b><br>En Windows: Sitka Display Italic.</p><p class="cdw-secundario">Una palabra por pastilla. Nada más.</p></div>
+    </div>
+    <p class="m-sub">Escala</p>
+    <div class="cdw-tarjeta m-escala" data-pieza="tipografia">
+      <div><small>Display · portada</small><small>300 · 104–184 px · −6 %</small><span class="m-muestra" style="font:200 104px/.9 var(--cdw-f-display); letter-spacing:-.06em">CD Week</span></div>
+      <div><small>Título 1 · Hero</small><small>300 · 56 px · −4 % · 1.04</small><span class="m-muestra" style="font:300 56px/1.04 var(--cdw-f-display); letter-spacing:-.04em">Hacemos visible lo invisible</span></div>
+      <div><small>Título 2 · sección</small><small>300 · 38–40 px · −4 %</small><span class="m-muestra" style="font:300 40px/1.05 var(--cdw-f-display); letter-spacing:-.04em">Comunidad · AI Builders</span></div>
+      <div><small>Título 3 · tarjeta</small><small>400 · 22 px · −2.5 %</small><span class="m-muestra" style="font:400 22px/1.15 var(--cdw-f-display); letter-spacing:-.025em">AI Builders: agentes para revisar normativa</span></div>
+      <div><small>Cifra</small><small>300 · 84 px · −6 % · unidad al 55 % en gris</small><span class="m-muestra cdw-cifra" style="font:300 84px/.9 var(--cdw-f-display); letter-spacing:-.06em">62<span>%</span></span></div>
+      <div><small>Cuerpo</small><small>400 · 16 px · 1.55</small><span class="m-muestra" style="font:400 16px/1.55 var(--cdw-f-texto)">Escríbenos cuando el proyecto todavía está en concepto.</span></div>
+      <div><small>Pastilla</small><small>600 · 13.5 px + itálica 1.12 em</small><span class="m-muestra" style="font:600 16px/1.2 var(--cdw-f-texto)">Performance <em style="font:italic 400 1.12em/1 var(--cdw-f-serif)">Simulation</em></span></div>
+      <div><small>Etiqueta</small><small>mono 500 · 11–12 px · +16 % · MAYÚSCULAS</small><span class="m-muestra cdw-etiqueta" style="color:var(--cdw-grafito)">Performance Simulation · MX</span></div>
+    </div>
+    <div class="m-g3" style="margin-top:20px">
+      <div class="cdw-tarjeta"><h3 class="m-h">Tracking</h3><p>Más grande, más cerrado: −6 % en cifras y portada, −4 % en títulos, 0 en texto. Las etiquetas mono se abren +16 % (+32 % en «LATAM»).</p></div>
+      <div class="cdw-tarjeta"><h3 class="m-h">Peso</h3><p>Títulos y cifras siempre en Light 300. Las negritas solo aparecen en pastillas (600) y en botones (500). Nunca títulos en bold.</p></div>
+      <div class="cdw-tarjeta"><h3 class="m-h">Mayúsculas</h3><p>Títulos en minúsculas con mayúscula inicial (estilo oración). Mayúsculas solo en etiquetas mono. El logotipo, todo en minúsculas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 ELEMENTOS GRÁFICOS ================= -->
+<section class="m-sec" id="graficos">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">05 · Elementos gráficos</div>
+      <div>
+        <h2 class="m-titulo">Orbe, campo, trazo blanco y grano</h2>
+        <p class="m-lede">Cuatro ingredientes que se combinan en todas las piezas. Se generan con código (CSS y SVG), así que cualquier tamaño sale nítido.</p>
+      </div>
+    </div>
+    <p class="m-sub">Anatomía del orbe</p>
+    <div class="m-anatomia">
+      <div><div class="m-escena m-paso1"><span class="cdw-orbe" style="--t:999s"><i></i></span></div><p class="m-pie"><b>1 · Color</b>Gradiente cónico de cuatro colores vecinos de la luz.</p></div>
+      <div><div class="m-escena m-paso2"><span class="cdw-orbe" style="--bl:22px"><i></i></span></div><p class="m-pie"><b>2 · Difusión</b>Desenfoque de 6 a 28 px según el tamaño (≈ 6 % del diámetro).</p></div>
+      <div><div class="m-escena m-paso3"><span class="cdw-orbe" style="--bl:22px"><i></i></span></div><p class="m-pie"><b>3 · Brillo</b>Luz blanca arriba a la izquierda (34 % · 30 %), al 78 %.</p></div>
+      <div><div class="m-escena"><span class="cdw-orbe" style="--bl:22px"><i></i></span></div><p class="m-pie"><b>4 · Grano</b>Ruido fractal en el centro, mezcla overlay al 40–50 %.</p></div>
+    </div>
+    <div class="m-g2" style="margin-top:20px">
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Campo</span><span>Fondo de miniaturas e íconos</span></p>
+        <div class="m-g3" style="gap:12px">
+          <div class="cdw-miniatura cdw-campo-territorio" style="aspect-ratio:1"><span class="cdw-orbe"><i></i></span><div class="cdw-grano"></div></div>
+          <div class="cdw-miniatura cdw-campo-generativo" style="aspect-ratio:1"><span class="cdw-orbe" style="--from:140deg"><i></i></span><div class="cdw-grano"></div></div>
+          <div class="cdw-miniatura cdw-campo-educacion" style="aspect-ratio:1"><span class="cdw-orbe" style="--from:280deg"><i></i></span><div class="cdw-grano"></div></div>
+        </div>
+        <p class="m-nota">Tres colores vecinos de la luz: luz radial arriba a la izquierda, degradado a 150° y un orbe grande que sale por la esquina inferior derecha. Grano al 30 %.</p>
+      </div>
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Trazo blanco</span><span>Un dibujo por idea</span></p>
+        <div class="m-g3" style="gap:12px">
+          <div class="cdw-miniatura cdw-campo-simulacion"><span class="cdw-orbe"><i></i></span><div class="cdw-dibujo" data-cdw-dibujo="solar"></div><div class="cdw-grano"></div></div>
+          <div class="cdw-miniatura cdw-campo-automatizacion"><span class="cdw-orbe" style="--from:210deg"><i></i></span><div class="cdw-dibujo" data-cdw-dibujo="grafo"></div><div class="cdw-grano"></div></div>
+          <div class="cdw-miniatura cdw-campo-territorio"><span class="cdw-orbe" style="--from:60deg"><i></i></span><div class="cdw-dibujo" data-cdw-dibujo="contornos"></div><div class="cdw-grano"></div></div>
+        </div>
+        <p class="m-nota">Líneas de 0.8 px (al 70 %), 1.1 px y una de acento de 1.6 px. Blancas, con sombra violeta de 2 px al 18 %. Etiquetas en mono de 9 px.</p>
+      </div>
+    </div>
+    <div class="m-g2" style="margin-top:20px">
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Biblioteca de dibujos</span></p>
+        <table class="m-tabla" style="background:transparent">
+          <thead><tr><th>Dibujo</th><th>Idea</th><th>Se usa en</th></tr></thead>
+          <tbody>
+            <tr><td><code>contornos</code></td><td>Curvas de nivel</td><td>Territorial &amp; Site Intelligence</td></tr>
+            <tr><td><code>solar</code></td><td>Trayectoria solar con N, S, E, O</td><td>Performance Simulation</td></tr>
+            <tr><td><code>malla</code></td><td>Superficie paramétrica</td><td>Generative &amp; Parametric Design</td></tr>
+            <tr><td><code>grafo</code></td><td>Nodos IN → DEF → OUT</td><td>Automation &amp; Custom Tools</td></tr>
+            <tr><td><code>curva</code></td><td>Curva de aprendizaje 01–04</td><td>Education &amp; Enablement</td></tr>
+            <tr><td><code>ruta</code></td><td>Red punteada de soluciones</td><td>Hero, Soluciones (Atlas · Flujo · Brisa · Trama)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Pastilla</span><span>El nombre sobre la imagen</span></p>
+        <div class="m-escena" style="display:grid; place-items:center; background:linear-gradient(150deg,var(--cdw-lila),var(--cdw-rosa) 55%,var(--cdw-durazno)); aspect-ratio:16/9">
+          <div class="cdw-pastilla" style="font-size:20px; padding:16px 20px; border-radius:20px">Generative &amp; <em>Parametric</em></div>
+        </div>
+        <p class="m-nota">Blanco al 92 %, esquinas de 16 px, Inter 600 de 13.5 px. Una palabra (la última, la que da el matiz) en itálica serif a 1.12 em. Siempre abajo, a 12 px de los bordes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 ÍCONOS ================= -->
+<section class="m-sec" id="iconos">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">06 · Íconos</div>
+      <div>
+        <h2 class="m-titulo">Línea blanca dentro de la luz</h2>
+        <p class="m-lede">Íconos de línea en una rejilla de 24, con extremos redondos. Sobre color van en blanco dentro de un círculo de dos tonos; sobre perla o blanco, en grafito sin círculo.</p>
+      </div>
+    </div>
+    <div class="m-iconos">
+      <div><span class="cdw-icono" style="--x:var(--cdw-durazno); --y:var(--cdw-coral)" data-cdw-icono="territorio"></span>Territorio<span class="m-linea" data-cdw-icono="territorio"></span></div>
+      <div><span class="cdw-icono" style="--x:var(--cdw-coral); --y:var(--cdw-rosa)" data-cdw-icono="simulacion"></span>Simulación<span class="m-linea" data-cdw-icono="simulacion"></span></div>
+      <div><span class="cdw-icono" style="--x:var(--cdw-rosa); --y:var(--cdw-lila)" data-cdw-icono="generativo"></span>Generativo<span class="m-linea" data-cdw-icono="generativo"></span></div>
+      <div><span class="cdw-icono" style="--x:var(--cdw-lila); --y:var(--cdw-cielo)" data-cdw-icono="automatizacion"></span>Automatización<span class="m-linea" data-cdw-icono="automatizacion"></span></div>
+      <div><span class="cdw-icono" style="--x:var(--cdw-cielo); --y:var(--cdw-cobalto)" data-cdw-icono="educacion"></span>Educación<span class="m-linea" data-cdw-icono="educacion"></span></div>
+      <div><span class="cdw-icono" style="--x:var(--cdw-cobalto); --y:var(--cdw-menta)" data-cdw-icono="datos"></span>Datos<span class="m-linea" data-cdw-icono="datos"></span></div>
+    </div>
+    <div class="m-g2" style="margin-top:20px">
+      <div class="cdw-tarjeta" style="display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center">
+        <div class="m-rejilla" data-cdw-icono="simulacion"></div>
+        <dl class="m-spec" style="grid-template-columns:80px 1fr">
+          <dt>Rejilla</dt><dd>24 × 24, con 2 px de margen.</dd>
+          <dt>Trazo</dt><dd>1.9 px en círculo; 1.5 px suelto. Extremos y uniones redondos, sin relleno.</dd>
+          <dt>Círculo</dt><dd>54 px; degradado a 140° entre dos colores vecinos, brillo arriba a la izquierda, grano al 30 % y sombra del color más profundo.</dd>
+          <dt>Tamaño</dt><dd>El ícono mide 28 px dentro del círculo de 54 px.</dd>
+        </dl>
+      </div>
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Fila para exportar</span></p>
+        <div class="m-fila-iconos" data-pieza="iconos">
+          <span class="cdw-icono" style="--x:var(--cdw-durazno); --y:var(--cdw-coral)" data-cdw-icono="territorio"></span>
+          <span class="cdw-icono" style="--x:var(--cdw-coral); --y:var(--cdw-rosa)" data-cdw-icono="simulacion"></span>
+          <span class="cdw-icono" style="--x:var(--cdw-rosa); --y:var(--cdw-lila)" data-cdw-icono="generativo"></span>
+          <span class="cdw-icono" style="--x:var(--cdw-lila); --y:var(--cdw-cielo)" data-cdw-icono="automatizacion"></span>
+          <span class="cdw-icono" style="--x:var(--cdw-cielo); --y:var(--cdw-cobalto)" data-cdw-icono="educacion"></span>
+          <span class="cdw-icono" style="--x:var(--cdw-cobalto); --y:var(--cdw-menta)" data-cdw-icono="datos"></span>
+        </div>
+        <p class="m-nota">Los pares avanzan por la luz: durazno → coral → rosa → lila → cielo → cobalto → menta. Un ícono nuevo toma el par que sigue. Los SVG sueltos están en <code>svg/iconos/</code>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 07 COMPONENTES ================= -->
+<section class="m-sec" id="componentes">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">07 · Componentes</div>
+      <div>
+        <h2 class="m-titulo">Las piezas del sitio</h2>
+        <p class="m-lede">Cada componente está en <code>cd-week.css</code> y se arma con las clases que aparecen en el código. Copia el bloque y cambia el texto.</p>
+      </div>
+    </div>
+
+    <p class="m-sub">Hero</p>
+    <div class="m-g2">
+      <dl class="m-spec cdw-tarjeta">
+        <dt>Proporción</dt><dd>2.5 : 1 (1600 × 640). En móvil, 4 : 5 con el texto abajo.</dd>
+        <dt>Orbes</dt><dd>Tres, a la derecha: 46 % (coral, durazno, lila, cielo), 30 % (lila, cielo, durazno, mantequilla) y 20 % (cielo, cobalto, lila, durazno). Giran en 40–70 s y flotan en 16–22 s.</dd>
+        <dt>Red</dt><dd>Ruta punteada blanca con cuatro nodos y nombres (21 px) sobre los orbes.</dd>
+        <dt>Texto</dt><dd>A la izquierda, 44 % del ancho: etiqueta mono, título Light 56 px, párrafo gris y un botón grafito.</dd>
+        <dt>Esquina</dt><dd>Países en mono: «MX · CO · PA · AR».</dd>
+      </dl>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Código</span></p><div class="m-code"><button class="m-copiar" type="button">Copiar</button><pre><code>&lt;div class="cdw-hero"&gt;
+  &lt;div class="cdw-orbe o1"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class="cdw-orbe o2"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class="cdw-orbe o3"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class="cdw-ruta" data-cdw-ruta&gt;&lt;/div&gt;
+  &lt;div class="cdw-hero-txt"&gt;
+    &lt;p class="cdw-etiqueta"&gt;Computational Design · LATAM&lt;/p&gt;
+    &lt;h2&gt;Hacemos visible lo que da forma a los proyectos.&lt;/h2&gt;
+    &lt;p&gt;Simulación, diseño paramétrico, automatización y datos.&lt;/p&gt;
+    &lt;a class="cdw-boton" href="#"&gt;Conoce los servicios →&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;p class="cdw-etiqueta cdw-hero-esquina"&gt;MX · CO · PA · AR&lt;/p&gt;
+&lt;/div&gt;</code></pre></div></div>
+    </div>
+
+    <p class="m-sub">Miniaturas de servicio (1 : 1)</p>
+    <div class="m-g5" id="m-miniaturas" data-pieza="miniaturas"></div>
+    <div class="m-g2" style="margin-top:20px">
+      <dl class="m-spec cdw-tarjeta">
+        <dt>Capas</dt><dd>Campo de tres colores · orbe abajo a la derecha (96 %) · dibujo blanco · grano · pastilla.</dd>
+        <dt>Sin ícono</dt><dd>La miniatura no lleva ícono: el dibujo blanco ya dice de qué trata.</dd>
+        <dt>Dibujo</dt><dd>Ocupa el espacio que deja la pastilla, con márgenes de 11 % arriba y 12 % a los lados.</dd>
+        <dt>Pastilla</dt><dd>Nombre del servicio en inglés, con la última palabra en itálica serif.</dd>
+        <dt>Campos</dt><dd>Territorio: coral, durazno, mantequilla · Simulación: rosa, coral, durazno · Generativo: lila, rosa, durazno · Automatización: cielo, lila, cobalto · Educación: cielo, menta, cobalto.</dd>
+      </dl>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Código</span></p><div class="m-code"><button class="m-copiar" type="button">Copiar</button><pre><code>&lt;div class="cdw-miniatura cdw-campo-simulacion"&gt;
+  &lt;div class="cdw-orbe"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class="cdw-dibujo" data-cdw-dibujo="solar"&gt;&lt;/div&gt;
+  &lt;div class="cdw-grano"&gt;&lt;/div&gt;
+  &lt;div class="cdw-pastilla"&gt;Performance &lt;em&gt;Simulation&lt;/em&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div></div>
+    </div>
+
+    <p class="m-sub">Tarjetas</p>
+    <div class="m-g4">
+      <div class="cdw-tarjeta cdw-dato" data-pieza="dato"><p class="cdw-tarjeta-t"><span>Dato</span><span>Ejemplo</span></p><div class="cdw-cifra">62<span>%</span></div><p>menos tiempo en revisar áreas con el script de Automation.</p><div class="cdw-barra-firma" style="--v:62%"><b></b></div><div class="cdw-escala cdw-etiqueta"><span>0</span><span>100</span></div></div>
+      <div class="cdw-tarjeta cdw-persona" data-pieza="persona"><p class="cdw-tarjeta-t"><span>Persona</span><span>Ejemplo</span></p><div class="cdw-avatar"><span class="cdw-orbe"><i></i></span><span>MO</span></div><h3>Mariana Ortiz</h3><p>Computational Designer · Ciudad de México</p><div class="cdw-chips"><span class="cdw-chip cdw-chip--activo">Grasshopper</span><span class="cdw-chip">Ladybug</span><span class="cdw-chip">Python</span></div></div>
+      <div class="cdw-tarjeta cdw-evento" data-pieza="evento"><p class="cdw-tarjeta-t"><span>Evento</span><span>Ejemplo</span></p><span class="cdw-orbe cdw-orbe--en-linea"><i></i></span><p class="cdw-etiqueta" style="margin-bottom:8px">Mar · 21 oct · 18:00</p><h3>AI Builders: agentes para revisar normativa</h3><p>Abierta a todo LATAM.</p></div>
+      <div class="cdw-tarjeta" data-pieza="controles"><p class="cdw-tarjeta-t"><span>Controles</span></p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap"><span class="cdw-icono" style="--x:var(--cdw-durazno); --y:var(--cdw-coral)" data-cdw-icono="territorio"></span><span class="cdw-icono" style="--x:var(--cdw-lila); --y:var(--cdw-cielo)" data-cdw-icono="automatizacion"></span><span class="cdw-icono" style="--x:var(--cdw-cobalto); --y:var(--cdw-menta)" data-cdw-icono="datos"></span></div>
+        <div class="cdw-chips" style="margin-top:18px"><span class="cdw-boton">Pedir apoyo</span><span class="cdw-boton cdw-boton--contorno">Ver casos</span></div>
+        <div class="cdw-chips" style="margin-top:14px"><span class="cdw-chip cdw-chip--activo">Todos</span><span class="cdw-chip">Simulación</span><span class="cdw-chip">Datos</span></div>
+      </div>
+    </div>
+    <div class="m-g2" style="margin-top:20px">
+      <dl class="m-spec cdw-tarjeta">
+        <dt>Tarjeta</dt><dd>Blanca, esquinas de 28 px, relleno de 24–28 px, sin borde ni sombra. Encabezado mono con el tipo a la izquierda y «Ejemplo» o un dato a la derecha.</dd>
+        <dt>Dato</dt><dd>Cifra Light 84 px con la unidad en gris al 55 %. Barra firma de 10 px con un marcador grafito en el valor.</dd>
+        <dt>Persona</dt><dd>Avatar de orbe de 88 px con iniciales blancas Light. Chips en niebla; el activo, degradado suave durazno → lila (nunca negro).</dd>
+        <dt>Evento</dt><dd>Orbe de 104 px, fecha en mono («Mar · 21 oct · 18:00»), título de 22 px y una línea en gris.</dd>
+        <dt>Botones</dt><dd>Píldora. Primario grafito con texto blanco; secundario con contorno grafito. Texto Inter 500 de 14 px, relleno 12 × 18 px.</dd>
+      </dl>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Código · tarjeta de dato</span></p><div class="m-code"><button class="m-copiar" type="button">Copiar</button><pre><code>&lt;div class="cdw-tarjeta cdw-dato"&gt;
+  &lt;p class="cdw-tarjeta-t"&gt;&lt;span&gt;Dato&lt;/span&gt;&lt;span&gt;Ejemplo&lt;/span&gt;&lt;/p&gt;
+  &lt;div class="cdw-cifra"&gt;62&lt;span&gt;%&lt;/span&gt;&lt;/div&gt;
+  &lt;p&gt;menos tiempo en revisar áreas con el script de Automation.&lt;/p&gt;
+  &lt;div class="cdw-barra-firma" style="--v:62%"&gt;&lt;b&gt;&lt;/b&gt;&lt;/div&gt;
+  &lt;div class="cdw-escala cdw-etiqueta"&gt;&lt;span&gt;0&lt;/span&gt;&lt;span&gt;100&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></div></div>
+    </div>
+
+    <p class="m-sub">Banner de sección (16 : 3)</p>
+    <div class="cdw-banner" data-pieza="banner">
+      <div class="cdw-banner-orbes" id="m-banner-orbes"></div>
+      <div class="cdw-banner-txt"><p class="cdw-etiqueta">Comunidad</p><h3>Comunidad · AI Builders</h3></div>
+    </div>
+    <p class="m-nota">Seis orbes de 9.5 % en fila a la derecha, cada uno con un par de la luz (mantequilla/coral, coral/lila, lila/cielo, cielo/cobalto, durazno/lila, coral/mantequilla). Título Light de 38 px a la izquierda.</p>
+  </div>
+</section>
+
+<!-- ================= 08 DATOS ================= -->
+<section class="m-sec" id="datos">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">08 · Datos y procesos</div>
+      <div>
+        <h2 class="m-titulo">El dato como luz</h2>
+        <p class="m-lede">Gráficas pocas y grandes: cifras Light, colores de la luz en degradado y trazo blanco encima. Cada gráfica responde una sola pregunta.</p>
+      </div>
+    </div>
+    <div class="m-g2">
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Resultados de encuesta</span><span>Ejemplo</span></p><div class="cdw-lienzo m-lienzo-barras" data-pieza="encuesta"><div class="cdw-barras" data-cdw-barras></div></div><p class="m-nota">Barra de dos tramos en degradado, marcador triangular en el valor y cifra de 64 px. Pares: durazno/mantequilla, mantequilla/cielo, cielo/menta.</p></div>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Adopción por equipo</span><span>Ejemplo</span></p><div class="cdw-lienzo" style="background:#fff" data-pieza="area"><div data-cdw-area style="position:absolute; inset:0"></div></div><p class="m-nota">Áreas en durazno, lila, cielo y menta con textura de trazo blanco y un medidor anular lila.</p></div>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Cómo trabajamos</span><span>Ejemplo</span></p><div class="cdw-lienzo" data-pieza="vidrio"><div class="cdw-vidrio" data-cdw-vidrio></div></div><p class="m-nota">Capas de vidrio en perspectiva: de la geometría a la decisión. Dos capas con tinte durazno y cielo; la última lleva la cifra.</p></div>
+      <div class="cdw-tarjeta"><p class="cdw-tarjeta-t"><span>Mapa de soluciones</span><span>Atlas · Flujo · Brisa · Trama</span></p><div class="cdw-lienzo" data-pieza="lentes"><div data-cdw-lentes style="position:absolute; inset:0"></div></div><p class="m-nota">Lentes de color (coral, violeta, cielo, lila) en multiplicar sobre <code>#E3DFDD</code>, con la red en blanco.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 09 RETÍCULA ================= -->
+<section class="m-sec" id="reticula">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">09 · Retícula y espacio</div>
+      <div>
+        <h2 class="m-titulo">Mucho aire, esquinas suaves</h2>
+        <p class="m-lede">Doce columnas, espacios generosos y una sola curva para todo. Las piezas se separan con aire, no con líneas.</p>
+      </div>
+    </div>
+    <div class="cdw-tarjeta">
+      <p class="cdw-tarjeta-t"><span>Retícula</span><span>12 columnas · 20 px · máx. 1240–1280 px</span></p>
+      <div class="m-columnas"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="m-nota">Márgenes de 40 px en escritorio y 20 px en móvil. Tarjetas en 2, 3, 4 o 5 columnas (miniaturas); en móvil, 1 o 2.</p>
+    </div>
+    <div class="m-g2" style="margin-top:20px">
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Espaciado</span><span>Base de 4 px</span></p>
+        <div class="m-espacios">
+          <div><i style="width:4px; height:4px"></i>4</div><div><i style="width:8px; height:8px"></i>8</div><div><i style="width:12px; height:12px"></i>12</div><div><i style="width:16px; height:16px"></i>16</div><div><i style="width:20px; height:20px"></i>20</div><div><i style="width:28px; height:28px"></i>28</div><div><i style="width:40px; height:40px"></i>40</div><div><i style="width:56px; height:56px"></i>56</div><div><i style="width:80px; height:80px"></i>80</div><div><i style="width:104px; height:104px"></i>104</div>
+        </div>
+        <p class="m-nota">20 px entre tarjetas · 24–28 px dentro de una tarjeta · 44–56 px entre bloques · 104 px entre secciones.</p>
+      </div>
+      <div class="cdw-tarjeta">
+        <p class="cdw-tarjeta-t"><span>Radios</span></p>
+        <div class="m-radios">
+          <div><i style="border-radius:28px"></i>28 · tarjetas, Hero, miniaturas</div>
+          <div><i style="border-radius:17px"></i>17 · lienzos de datos</div>
+          <div><i style="border-radius:16px"></i>16 · pastillas</div>
+          <div><i style="border-radius:999px; height:44px"></i>píldora · botones, chips</div>
+        </div>
+        <p class="m-nota">Sin bordes en tarjetas. Las únicas sombras son de color y muy suaves: debajo de los íconos y en los trazos blancos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10 MOVIMIENTO ================= -->
+<section class="m-sec" id="movimiento">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">10 · Movimiento</div>
+      <div>
+        <h2 class="m-titulo">Lento, como la luz</h2>
+        <p class="m-lede">Los orbes giran y flotan tan despacio que casi no se nota. El movimiento acompaña; nunca llama la atención.</p>
+      </div>
+    </div>
+    <div class="m-g3">
+      <div class="cdw-tarjeta"><h3 class="m-h">Giro</h3><p>El color del orbe gira una vuelta en 40 a 70 s, lineal. Orbes grandes, más lentos.</p></div>
+      <div class="cdw-tarjeta"><h3 class="m-h">Flotación</h3><p>Desplazamiento de 8 a 14 px en 16 a 22 s, ida y vuelta con ease-in-out. Cada orbe con su propio ritmo.</p></div>
+      <div class="cdw-tarjeta"><h3 class="m-h">Accesibilidad y exportación</h3><p>Con «reducir movimiento» del sistema, todo queda quieto. En SharePoint el movimiento solo llega como GIF lento (bucle de 6 s, máx. 3 MB) en web parts Image.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 11 SHAREPOINT ================= -->
+<section class="m-sec" id="sharepoint">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">11 · En SharePoint</div>
+      <div>
+        <h2 class="m-titulo">La identidad vive en las imágenes</h2>
+        <p class="m-lede">SharePoint no deja cambiar fuentes ni estilos. CD Week convive con el tema del sitio y llega en imágenes exportadas; los textos usan los estilos nativos.</p>
+      </div>
+    </div>
+    <table class="m-tabla">
+      <thead><tr><th>Elemento</th><th>Cómo se aplica</th></tr></thead>
+      <tbody>
+        <tr><td>Tema del sitio</td><td>Neutral Slate (el actual del sitio de Design Technology) o Neutral Fog.</td></tr>
+        <tr><td>Fondos de sección</td><td>Ninguno o Neutral. Evita el fondo fuerte, que apaga la luz de los orbes.</td></tr>
+        <tr><td>Logo del sitio</td><td>Monograma «cd» en PNG cuadrado.</td></tr>
+        <tr><td>Hero</td><td>Imagen 16 : 9 de 1920 × 1080 con orbes y red blanca, dejando aire para el texto del web part. PNG.</td></tr>
+        <tr><td>Quick links (mosaicos)</td><td>Miniaturas 1 : 1 de servicio, con dibujo blanco y pastilla. PNG.</td></tr>
+        <tr><td>Banner</td><td>16 : 5 de 1920 × 600 con la fila de orbes a la derecha. PNG.</td></tr>
+        <tr><td>Image y galería</td><td>Gráficas de datos y procesos (4 : 3 o 16 : 9). GIF animado lento, máx. 3 MB.</td></tr>
+        <tr><td>Texto</td><td>Encabezado 1 y 2 de SharePoint, Segoe UI. Las cifras grandes, la red y las pastillas van dentro de las imágenes.</td></tr>
+        <tr><td>Personas</td><td>Avatar de orbe con iniciales en la lista de Comunidad, cuando no hay foto.</td></tr>
+      </tbody>
+    </table>
+    <p class="m-nota">El simulador de páginas de SharePoint del equipo exporta estas imágenes en los tamaños correctos.</p>
+  </div>
+</section>
+
+<!-- ================= 12 VOZ ================= -->
+<section class="m-sec" id="voz">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">12 · Voz y contenido</div>
+      <div>
+        <h2 class="m-titulo">Claro, cercano y concreto</h2>
+        <p class="m-lede">Español de México, de tú, en frases cortas. Primero qué ganas; luego cómo se hace.</p>
+      </div>
+    </div>
+    <table class="m-tabla">
+      <thead><tr><th>Así sí</th><th>Así no</th></tr></thead>
+      <tbody>
+        <tr><td>Hacemos visible lo que da forma a los proyectos.</td><td>Soluciones disruptivas de vanguardia para potenciar el diseño.</td></tr>
+        <tr><td>Escríbenos cuando el proyecto todavía está en concepto.</td><td>Contacte al equipo para mayor información.</td></tr>
+        <tr><td>62 % menos tiempo en revisar áreas (ejemplo).</td><td>Ahorros increíbles de tiempo.</td></tr>
+        <tr><td>Pedir apoyo · Ver casos · Conoce los servicios</td><td>Click aquí · Más info · Enviar solicitud</td></tr>
+      </tbody>
+    </table>
+    <div class="m-g3" style="margin-top:20px">
+      <div class="cdw-tarjeta"><h3 class="m-h">Nombres</h3><p>Los servicios se quedan en inglés (Performance Simulation, Generative &amp; Parametric Design…). Las soluciones tienen nombres de una palabra: Atlas, Flujo, Brisa, Trama.</p></div>
+      <div class="cdw-tarjeta"><h3 class="m-h">Formatos</h3><p>Fechas «Mar · 21 oct · 18:00». Cifras con espacio fino antes del % en texto corrido y la unidad atenuada en gráficas. Países «MX · CO · PA · AR».</p></div>
+      <div class="cdw-tarjeta"><h3 class="m-h">Honestidad</h3><p>Personas, cifras y casos inventados llevan «Ejemplo». Nada de logos de clientes ni de la firma en piezas de prueba.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 13 SÍ Y NO ================= -->
+<section class="m-sec" id="reglas">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">13 · Sí y no</div>
+      <div>
+        <h2 class="m-titulo">Errores comunes</h2>
+        <p class="m-lede">Lo que más se equivoca al generar piezas de CD Week, con o sin IA.</p>
+      </div>
+    </div>
+    <div class="m-sino">
+      <div class="m-caso"><div class="m-escena" style="aspect-ratio:16/10"><div class="cdw-miniatura cdw-campo-generativo" style="position:absolute; inset:0; aspect-ratio:auto; border-radius:0"><span class="cdw-orbe"><i></i></span><div class="cdw-dibujo" data-cdw-dibujo="malla"></div><div class="cdw-grano"></div><div class="cdw-pastilla">Generative &amp; <em>Parametric</em></div></div></div><div><span class="m-ok">SÍ</span><p>Nombre en pastilla blanca, con texto grafito.</p></div></div>
+      <div class="m-caso"><div class="m-escena m-tachado" style="aspect-ratio:16/10"><div class="cdw-miniatura cdw-campo-generativo" style="position:absolute; inset:0; aspect-ratio:auto; border-radius:0"><span class="cdw-orbe"><i></i></span><div class="cdw-dibujo" data-cdw-dibujo="malla"></div><div class="cdw-grano"></div><p style="position:relative; z-index:3; margin:0 16px 16px; color:#fff; font:600 14px/1.2 var(--cdw-f-texto)">Generative &amp; Parametric</p></div></div><div><span class="m-mal">NO</span><p>Texto blanco directo sobre el pastel: no se lee.</p></div></div>
+      <div class="m-caso"><div class="m-escena m-tachado" style="aspect-ratio:16/10; background:linear-gradient(135deg,#FF2BD6,#00E5FF 60%,#7CFF00)"><div class="cdw-dibujo" style="position:absolute; inset:14%; color:#fff" data-cdw-dibujo="malla"></div></div><div><span class="m-mal">NO</span><p>Colores saturados o neón fuera de la paleta.</p></div></div>
+      <div class="m-caso"><div class="m-escena" style="aspect-ratio:16/10; display:grid; place-items:center"><span class="cdw-icono" style="--x:var(--cdw-lila); --y:var(--cdw-cielo); transform:scale(1.4)" data-cdw-icono="automatizacion"></span></div><div><span class="m-ok">SÍ</span><p>Ícono blanco dentro de un círculo de dos tonos.</p></div></div>
+      <div class="m-caso"><div class="m-escena m-tachado" style="aspect-ratio:16/10; display:grid; place-items:center"><span style="position:relative; display:grid; place-items:center; width:76px; height:76px"><span style="position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 40% 40%, var(--cdw-durazno), var(--cdw-lila) 60%, transparent 72%); filter:blur(6px)"></span><span style="position:relative; color:var(--cdw-grafito)" data-cdw-icono="automatizacion"></span></span></div><div><span class="m-mal">NO</span><p>Ícono oscuro sobre un aura borrosa.</p></div></div>
+      <div class="m-caso"><div class="m-escena m-tachado" style="aspect-ratio:16/10"><span class="cdw-orbe" style="width:40%; left:-6%; top:-10%"><i></i></span><span class="cdw-orbe" style="width:36%; left:30%; top:30%"><i></i></span><span class="cdw-orbe" style="width:42%; right:-8%; top:-14%"><i></i></span><span class="cdw-orbe" style="width:30%; left:8%; bottom:-14%"><i></i></span><span class="cdw-orbe" style="width:30%; right:10%; bottom:-10%"><i></i></span></div><div><span class="m-mal">NO</span><p>Llenar todo de orbes. Tres como máximo por pieza (seis en el banner).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 14 PARA IA ================= -->
+<section class="m-sec" id="ia">
+  <div class="m-wrap">
+    <div class="m-head">
+      <div class="m-num">14 · Para IA y Claude Design</div>
+      <div>
+        <h2 class="m-titulo">Cómo darle este manual a una IA</h2>
+        <p class="m-lede">En Claude, crea un sistema de diseño «CD Week» con los archivos de esta carpeta: adjúntalos en un chat o súbelos en la configuración de Claude Design. Compártelo solo con personas específicas, no como predeterminado de la organización (los pasos están en <code>README.md</code>). Luego pide piezas con los prompts de abajo. En cualquier otra IA, adjunta <code>DESIGN.md</code> y las imágenes de <code>ejemplos/</code>.</p>
+      </div>
+    </div>
+    <div class="m-archivos">
+      <div><code>README.md</code>Por dónde empezar y cómo darle el manual a Claude o a otra IA.</div>
+      <div><code>DESIGN.md</code>El manual completo en texto, con tokens. Es el archivo principal.</div>
+      <div><code>cd-week.css · cd-week.js</code>Componentes y dibujos listos para usar en HTML.</div>
+      <div><code>tokens.json</code>Colores, letra, radios y espacios en formato de tokens.</div>
+      <div><code>ejemplos/ · svg/</code>Capturas PNG de cada pieza, para que la IA vea el resultado esperado, e íconos y dibujos sueltos en SVG.</div>
+      <div><code>manual.html</code>Este manual, para revisarlo en el navegador.</div>
+    </div>
+    <p class="m-sub">Prompts de ejemplo</p>
+    <div class="m-prompts" id="m-prompts"></div>
+    <p class="m-sub">Lista de revisión</p>
+    <div class="cdw-tarjeta"><ol class="m-lista">
+      <li>¿El fondo es perla o blanco y el color solo aparece en orbes, campos, íconos o barras?</li>
+      <li>¿Todos los colores son de la paleta? ¿Nada saturado ni neón?</li>
+      <li>¿El texto está en grafito o gris, y el blanco solo en trazos, íconos o el monograma?</li>
+      <li>¿Títulos y cifras en Light con tracking negativo? ¿Etiquetas en mono mayúsculas?</li>
+      <li>¿Hay como máximo una palabra en itálica serif, y solo dentro de una pastilla?</li>
+      <li>¿Las miniaturas tienen dibujo blanco y pastilla, sin ícono?</li>
+      <li>¿Esquinas de 28 px, sin bordes ni sombras duras?</li>
+      <li>¿Máximo tres orbes por pieza y mucho aire alrededor?</li>
+      <li>¿Los datos inventados dicen «Ejemplo» y no hay logos de la firma ni de clientes?</li>
+    </ol></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="m-wrap">
+    <div>CD Week · Manual de identidad v1.0 · Computational Design LATAM · octubre 2026. Variación D1 · Perla de la iteración D de la exploración de identidad del equipo.</div>
+    <div>Contenido de ejemplo con personas, cifras y fechas ficticias. Sin fuentes ni recursos externos: si Inter, JetBrains Mono o Instrument Serif no están instaladas, se usan Segoe UI, Cascadia Mono y Sitka.</div>
+  </div>
+</footer>
+
+<script src="cd-week.js"></script>
+<script>
+(function () {
+  'use strict';
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+  /* miniaturas de servicio */
+  $('#m-miniaturas').innerHTML = CDWeek.SERVICIOS.map((s, i) => `<div class="cdw-miniatura cdw-campo-${s.id}" data-pieza="miniatura-${s.id}"><span class="cdw-orbe" style="--from:${i * 70}deg"><i></i></span><div class="cdw-dibujo" data-cdw-dibujo="${s.dibujo}"></div><div class="cdw-grano"></div><div class="cdw-pastilla">${s.pastilla}</div></div>`).join('');
+  /* orbes del banner */
+  $('#m-banner-orbes').innerHTML = CDWeek.PARES_BANNER.map((p, i) => `<span class="cdw-orbe" style="--o1:var(--cdw-${p[0]}); --o2:var(--cdw-${p[1]}); --o3:var(--cdw-${p[0]}); --o4:var(--cdw-${p[1]}); --from:${i * 50}deg"><i></i></span>`).join('');
+
+  /* prompts para Claude Design */
+  const PROMPTS = [
+    ['Página de inicio', 'Usa el sistema de diseño CD Week (DESIGN.md, variación D1 · Perla). Diseña la página de inicio de Computational Design LATAM: Hero 2.5:1 con tres orbes a la derecha y la red blanca Atlas · Flujo · Brisa · Trama, título «Hacemos visible lo que da forma a los proyectos.»; fila de 5 miniaturas 1:1 de servicios (campo de color, dibujo blanco y pastilla, sin ícono); una fila con tarjeta de dato, persona y evento; banner de orbes «Comunidad · AI Builders». Fondo perla #F2F2F0, tarjetas blancas de 28 px, texto grafito, títulos Light. Marca los datos inventados con «Ejemplo».'],
+    ['Miniaturas de un servicio nuevo', 'Con el sistema CD Week, crea una miniatura 1:1 para un servicio nuevo llamado «Digital Twins». Sigue la anatomía de DESIGN.md: campo de tres colores vecinos de la luz (elige el siguiente par libre: cielo, menta y cobalto), orbe grande abajo a la derecha, un dibujo de línea blanco que explique la idea (por ejemplo, un edificio en malla con sensores) con línea fina al 70 % y una línea de acento, grano al 30 % y pastilla blanca abajo: «Digital <em>Twins</em>». Sin ícono, sin texto blanco.'],
+    ['Anuncio de evento', 'Diseña con CD Week una tarjeta y un banner 16:5 (1920 × 600) para anunciar una sesión de AI Builders: «Agentes para revisar normativa», martes 21 de octubre, 18:00, abierta a todo LATAM. Tarjeta blanca con orbe de 104 px (lila, coral, cielo, mantequilla), fecha en mono «Mar · 21 oct · 18:00», título de 22 px. Banner con fila de orbes a la derecha y título Light 38 px a la izquierda. Marca «Ejemplo».'],
+    ['Presentación de resultados', 'Arma con CD Week una presentación de 6 diapositivas 16:9 sobre los resultados de una encuesta interna (datos de ejemplo: 83 %, 58 %, 47 %). Portada con orbes y título Light; una idea por diapositiva; cifras Light gigantes con la unidad en gris; barras de encuesta en degradado con marcador; cierre con botón grafito «Pedir apoyo». Fondo perla, sin fotos, etiquetas en mono mayúsculas.'],
+    ['Ficha de una solución', 'Con el sistema CD Week, diseña una ficha de una página para la solución «Atlas» (análisis de sitio). Encabezado con etiqueta mono «SOLUCIÓN 01», título Light, un mapa de lentes de color con la red blanca, tres tarjetas de dato con barra firma y una sección «Cómo trabajamos» con capas de vidrio (geometría → análisis → opciones → datos → decisión). Todo con datos de ejemplo marcados.'],
+    ['Revisar una pieza', 'Revisa esta pieza contra DESIGN.md de CD Week y la lista de revisión de la sección 14. Dime qué reglas rompe (color fuera de paleta, texto blanco sobre pastel, títulos en bold, más de una itálica, más de tres orbes, íconos oscuros, bordes o sombras duras, datos sin «Ejemplo») y propón la corrección con los tokens exactos.'],
+  ];
+  $('#m-prompts').innerHTML = PROMPTS.map(([t, p]) => `<div class="cdw-tarjeta m-prompt"><h3>${t}</h3><div class="m-code"><button class="m-copiar" type="button">Copiar</button><pre><code>${p.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre></div></div>`).join('');
+
+  /* dibujos, íconos y gráficas */
+  CDWeek.montar();
+
+  /* copiar */
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('.m-copiar'); if (!b) return;
+    const texto = b.parentElement.querySelector('code').textContent;
+    const listo = () => { b.textContent = 'Copiado'; setTimeout(() => { b.textContent = 'Copiar'; }, 1600); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(texto).then(listo, () => {});
+    else { const t = document.createElement('textarea'); t.value = texto; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); listo(); }
+  });
+
+  /* pausar animación */
+  const btn = $('#m-pausa');
+  const quieto = (on) => { document.body.classList.toggle('cdw-quieto', on); btn.setAttribute('aria-pressed', String(on)); btn.textContent = on ? 'Reanudar animación' : 'Pausar animación'; };
+  btn.addEventListener('click', () => quieto(!document.body.classList.contains('cdw-quieto')));
+  const q = new URLSearchParams(location.search);
+  if (q.get('quieto') === '1') quieto(true);
+
+  /* ?pieza=<id>&w=&h=: deja sola una pieza al tamaño de exportación. Los tamaños viven en scripts/exportar.mjs.
+     llenar=1 estira la pieza a w × h; transparente=1 quita el fondo perla; s=<px> cambia el tamaño del monograma. */
+  const el = q.get('pieza') && $(`[data-pieza="${q.get('pieza')}"]`);
+  if (el) {
+    const w = +q.get('w') || 800, h = +q.get('h') || 600;
+    document.documentElement.classList.add('m-pieza');
+    document.documentElement.classList.toggle('m-transparente', q.get('transparente') === '1');
+    document.body.replaceChildren(el);
+    document.body.style.cssText = `width:${w}px; height:${h}px; margin:0`;
+    if (q.get('llenar') === '1') el.style.cssText += `; width:${w}px; height:${h}px; margin:0; aspect-ratio:auto`;
+    if (q.get('s')) el.style.setProperty('--s', q.get('s') + 'px');
+    quieto(true);
+  }
+})();
+</script>
+</body>
+</html>

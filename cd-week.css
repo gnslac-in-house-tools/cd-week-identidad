@@ -1,0 +1,185 @@
+/* CD Week · kit de identidad de la Computational Design Week (variación D1 · Perla)
+   Tokens y componentes listos para usar en HTML. Las clases empiezan con «cdw-».
+   Sin fuentes externas: si Inter, Instrument Serif o JetBrains Mono no están instaladas, se usan Segoe UI, Sitka y Cascadia. */
+
+:root{
+  /* neutros */
+  --cdw-perla:#F2F2F0;      /* fondo de página */
+  --cdw-blanco:#FFFFFF;     /* tarjetas y pastillas */
+  --cdw-niebla:#ECECEE;     /* superficie secundaria, chips */
+  --cdw-hero:#ECECEA;       /* fondo del Hero */
+  --cdw-linea:#DEDEDA;      /* divisores */
+  --cdw-grafito:#1D1E21;    /* texto, botón primario */
+  --cdw-gris:#5E6166;       /* texto secundario */
+  /* luz (de cálido a frío) */
+  --cdw-mantequilla:#F1E17C;
+  --cdw-durazno:#F8A082;
+  --cdw-coral:#F27751;
+  --cdw-rosa:#EE8FB4;
+  --cdw-lila:#B7A6EE;
+  --cdw-cielo:#85BBEF;
+  --cdw-cobalto:#3F6FE0;
+  --cdw-menta:#7FD6C2;
+  --cdw-violeta:#5B539B;    /* solo en lentes y como color de enlace */
+  --cdw-lente:#E3DFDD;      /* fondo del mapa de lentes */
+  --cdw-firma:linear-gradient(90deg,var(--cdw-mantequilla),var(--cdw-durazno),var(--cdw-coral),var(--cdw-rosa),var(--cdw-lila),var(--cdw-cielo),var(--cdw-cobalto),var(--cdw-menta));
+
+  /* tipografía */
+  --cdw-f-display:"Inter Display","Neue Haas Grotesk Display Pro","Segoe UI Variable Display","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --cdw-f-texto:"Inter","Segoe UI Variable Text","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --cdw-f-mono:"JetBrains Mono","Cascadia Mono",Consolas,"Courier New",monospace;
+  --cdw-f-serif:"Instrument Serif","Sitka Display","Sitka Heading",Georgia,serif;
+
+  /* forma y espacio */
+  --cdw-r-xl:28px;  /* tarjetas, miniaturas, Hero, banner */
+  --cdw-r-lg:17px;  /* lienzos de datos dentro de tarjetas */
+  --cdw-r-md:16px;  /* pastilla */
+  --cdw-r-sm:14px;  /* controles cuadrados */
+  --cdw-r-full:999px;
+  --cdw-e1:4px; --cdw-e2:8px; --cdw-e3:12px; --cdw-e4:16px; --cdw-e5:20px; --cdw-e6:28px; --cdw-e7:40px; --cdw-e8:56px; --cdw-e9:80px; --cdw-e10:104px;
+
+  /* textura y sombras */
+  --cdw-grano:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --cdw-sombra-trazo:drop-shadow(0 1px 2px rgba(40,32,90,.18));
+  --cdw-sombra-ruta:drop-shadow(0 1px 2px rgba(40,32,90,.35)) drop-shadow(0 0 10px rgba(40,32,90,.18));
+}
+
+/* ---------- base ---------- */
+.cdw-pagina{margin:0; background:var(--cdw-perla); color:var(--cdw-grafito); font:400 16px/1.55 var(--cdw-f-texto); -webkit-font-smoothing:antialiased}
+.cdw-etiqueta{font:500 11.5px/1.3 var(--cdw-f-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--cdw-gris); margin:0}
+.cdw-display{font:300 64px/1 var(--cdw-f-display); letter-spacing:-.045em; margin:0}
+.cdw-titulo{font:300 40px/1.05 var(--cdw-f-display); letter-spacing:-.04em; margin:0}
+.cdw-subtitulo{font:400 22px/1.15 var(--cdw-f-display); letter-spacing:-.025em; margin:0}
+.cdw-cuerpo{font:400 16px/1.55 var(--cdw-f-texto)}
+.cdw-secundario{color:var(--cdw-gris)}
+.cdw-ejemplo{position:absolute; right:14px; top:14px; z-index:5; font:600 10.5px/1 var(--cdw-f-mono); letter-spacing:.14em; text-transform:uppercase; padding:6px 9px; border-radius:var(--cdw-r-full); background:rgba(255,255,255,.82); color:var(--cdw-grafito); border:1px solid rgba(0,0,0,.12)}
+.cdw-quieto *, .cdw-quieto *::before, .cdw-quieto *::after{animation-play-state:paused !important}
+@media (prefers-reduced-motion: reduce){ .cdw-orbe, .cdw-orbe::before{animation:none !important} }
+
+/* ---------- orbe (luz) ---------- */
+/* 1 gradiente cónico de 4 colores · 2 desenfoque · 3 brillo blanco arriba a la izquierda · 4 grano en el centro */
+.cdw-orbe{position:absolute; display:block; aspect-ratio:1; border-radius:50%; --bl:16px; --gr:.5;
+  --o1:var(--cdw-coral); --o2:var(--cdw-durazno); --o3:var(--cdw-lila); --o4:var(--cdw-cielo)}
+.cdw-orbe--en-linea{position:relative; flex:none}
+.cdw-orbe::before{content:""; position:absolute; inset:0; border-radius:50%; background:conic-gradient(from var(--from,200deg), var(--o1), var(--o2), var(--o3), var(--o4), var(--o1)); filter:blur(var(--bl)); animation:cdw-gira var(--t,48s) linear infinite}
+.cdw-orbe::after{content:""; position:absolute; inset:6%; border-radius:50%; background:radial-gradient(circle at 34% 30%, rgba(255,255,255,.78), rgba(255,255,255,0) 46%); filter:blur(8px); opacity:var(--brillo,1)}
+.cdw-orbe > i{position:absolute; inset:-8%; border-radius:50%; background-image:var(--cdw-grano); background-size:180px; opacity:var(--gr); mix-blend-mode:overlay; -webkit-mask-image:radial-gradient(circle, #000 42%, transparent 70%); mask-image:radial-gradient(circle, #000 42%, transparent 70%); pointer-events:none; z-index:1}
+@keyframes cdw-gira{to{transform:rotate(360deg)}}
+@keyframes cdw-flota{50%{transform:translate(var(--dx,10px),var(--dy,-8px))}}
+.cdw-grano{position:absolute; inset:0; background-image:var(--cdw-grano); background-size:200px; opacity:.22; mix-blend-mode:overlay; pointer-events:none; z-index:2}
+
+/* ---------- trazo blanco (dibujos SVG de cd-week.js) ---------- */
+.cdw-svg{width:100%; height:100%; display:block}  /* toma el color del contenedor (currentColor) */
+.cdw-trazo{color:#fff}
+.cdw-trazo .cdw-svg{filter:var(--cdw-sombra-trazo)}
+
+/* ---------- tarjeta ---------- */
+.cdw-tarjeta{position:relative; background:var(--cdw-blanco); border-radius:var(--cdw-r-xl); padding:24px; overflow:hidden}
+.cdw-tarjeta-t{display:flex; justify-content:space-between; gap:12px; margin:0 0 18px; font:500 11px/1.3 var(--cdw-f-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--cdw-gris)}
+
+/* ---------- botones y chips ---------- */
+.cdw-boton{display:inline-flex; align-items:center; gap:8px; font:500 14px/1 var(--cdw-f-texto); padding:12px 18px; border-radius:var(--cdw-r-full); background:var(--cdw-grafito); color:#fff; text-decoration:none; border:1px solid var(--cdw-grafito); cursor:pointer}
+.cdw-boton--contorno{background:transparent; color:var(--cdw-grafito)}
+.cdw-boton:focus-visible, .cdw-chip:focus-visible{outline:2px solid var(--cdw-cobalto); outline-offset:3px}
+.cdw-chips{display:flex; flex-wrap:wrap; gap:6px}
+.cdw-chip{font:500 12px/1 var(--cdw-f-texto); padding:7px 11px; border-radius:var(--cdw-r-full); background:var(--cdw-niebla); color:var(--cdw-grafito); border:0}
+.cdw-chip--activo{background:linear-gradient(90deg, color-mix(in srgb, var(--cdw-durazno) 42%, #fff), color-mix(in srgb, var(--cdw-lila) 42%, #fff))}
+
+/* ---------- pastilla (nombre sobre imagen) ---------- */
+.cdw-pastilla{padding:11px 13px; border-radius:var(--cdw-r-md); background:rgba(255,255,255,.92); color:var(--cdw-grafito); font:600 13.5px/1.2 var(--cdw-f-texto)}
+.cdw-pastilla em{font:italic 400 1.12em/1 var(--cdw-f-serif)}
+
+/* ---------- miniatura de servicio 1:1 ---------- */
+/* campo de 3 colores (--t1 → --t3) + orbe abajo a la derecha + dibujo blanco + pastilla. Sin ícono. */
+.cdw-miniatura{position:relative; aspect-ratio:1; border-radius:var(--cdw-r-xl); overflow:hidden; display:flex; flex-direction:column;
+  --t1:var(--cdw-coral); --t2:var(--cdw-durazno); --t3:var(--cdw-mantequilla);
+  background:radial-gradient(85% 75% at 10% 8%, var(--t1), transparent 72%), linear-gradient(150deg, var(--t1), var(--t2) 55%, var(--t3))}
+.cdw-miniatura > .cdw-orbe{width:96%; right:-26%; bottom:-22%; --bl:24px; --gr:.4; --brillo:.55; --o1:var(--t3); --o2:var(--t2); --o3:var(--t1); --o4:var(--t2)}
+.cdw-miniatura > .cdw-dibujo{position:relative; flex:1; min-height:0; margin:11% 12% 10px; z-index:2; color:#fff}
+.cdw-miniatura > .cdw-dibujo .cdw-svg{filter:var(--cdw-sombra-trazo)}
+.cdw-miniatura > .cdw-grano{opacity:.3}
+.cdw-miniatura > .cdw-pastilla{position:relative; z-index:3; margin:0 12px 12px}
+/* pares de color por servicio */
+.cdw-campo-territorio{--t1:var(--cdw-coral); --t2:var(--cdw-durazno); --t3:var(--cdw-mantequilla)}
+.cdw-campo-simulacion{--t1:var(--cdw-rosa); --t2:var(--cdw-coral); --t3:var(--cdw-durazno)}
+.cdw-campo-generativo{--t1:var(--cdw-lila); --t2:var(--cdw-rosa); --t3:var(--cdw-durazno)}
+.cdw-campo-automatizacion{--t1:var(--cdw-cielo); --t2:var(--cdw-lila); --t3:var(--cdw-cobalto)}
+.cdw-campo-educacion{--t1:var(--cdw-cielo); --t2:var(--cdw-menta); --t3:var(--cdw-cobalto)}
+
+/* ---------- ícono en círculo ---------- */
+.cdw-ico{width:28px; height:28px; fill:none; stroke:currentColor; stroke-width:var(--ico-w,1.5); stroke-linecap:round; stroke-linejoin:round}
+.cdw-icono{position:relative; width:54px; height:54px; border-radius:50%; display:grid; place-items:center; color:#fff; overflow:hidden; flex:none;
+  --x:var(--cdw-durazno); --y:var(--cdw-coral);
+  background:radial-gradient(circle at 28% 22%, color-mix(in srgb, var(--x) 70%, #fff), transparent 58%), linear-gradient(140deg, var(--x), var(--y));
+  box-shadow:0 12px 26px -12px color-mix(in srgb, var(--y) 85%, transparent)}
+.cdw-icono::after{content:""; position:absolute; inset:0; background-image:var(--cdw-grano); background-size:140px; opacity:.3; mix-blend-mode:overlay; pointer-events:none}
+.cdw-icono .cdw-ico{position:relative; z-index:1; --ico-w:1.9; filter:drop-shadow(0 1px 1.5px rgba(40,32,90,.2))}
+
+/* ---------- Hero ---------- */
+.cdw-hero{position:relative; aspect-ratio:16/6.4; border-radius:var(--cdw-r-xl); overflow:hidden; background:var(--cdw-hero)}
+.cdw-hero > .cdw-orbe.o1{width:46%; right:-4%; top:-22%; --t:70s; --bl:28px; animation:cdw-flota 18s ease-in-out infinite}
+.cdw-hero > .cdw-orbe.o2{width:30%; right:24%; top:34%; --o1:var(--cdw-lila); --o2:var(--cdw-cielo); --o3:var(--cdw-durazno); --o4:var(--cdw-mantequilla); --t:55s; --bl:24px; --dx:-14px; animation:cdw-flota 22s ease-in-out infinite}
+.cdw-hero > .cdw-orbe.o3{width:20%; right:4%; bottom:-10%; --o1:var(--cdw-cielo); --o2:var(--cdw-cobalto); --o3:var(--cdw-lila); --o4:var(--cdw-durazno); --t:40s; --bl:18px; --dy:10px; animation:cdw-flota 16s ease-in-out infinite}
+.cdw-hero > .cdw-ruta{position:absolute; inset:0; z-index:2; color:#fff; filter:var(--cdw-sombra-ruta)}
+.cdw-hero-txt{position:absolute; left:6%; top:50%; transform:translateY(-50%); width:44%; z-index:3}
+.cdw-hero-txt h1, .cdw-hero-txt h2, .cdw-hero-txt h3{font:300 clamp(34px,4.1vw,56px)/1.04 var(--cdw-f-display); letter-spacing:-.04em; margin:16px 0}
+.cdw-hero-txt p{margin:0 0 24px; font-size:16px; color:var(--cdw-gris); max-width:44ch}
+.cdw-hero-esquina{position:absolute; left:6%; bottom:7%; z-index:3}
+
+/* ---------- dato (KPI) ---------- */
+.cdw-dato .cdw-cifra{font:300 84px/.9 var(--cdw-f-display); letter-spacing:-.06em; margin:8px 0 10px}
+.cdw-cifra span{color:var(--cdw-gris); font-size:.55em; letter-spacing:-.02em}
+.cdw-dato p{margin:0; font-size:14.5px}
+.cdw-barra-firma{height:10px; border-radius:9px; background:linear-gradient(90deg,var(--cdw-mantequilla),var(--cdw-durazno),var(--cdw-coral),var(--cdw-lila),var(--cdw-cielo)); position:relative; margin:22px 0 8px}
+.cdw-barra-firma b{position:absolute; left:var(--v,62%); top:-6px; width:3px; height:22px; border-radius:3px; background:var(--cdw-grafito)}
+.cdw-escala{display:flex; justify-content:space-between}
+
+/* ---------- persona ---------- */
+.cdw-avatar{position:relative; width:88px; height:88px; margin-bottom:16px}
+.cdw-avatar > .cdw-orbe{inset:0; width:100%; --bl:8px; --gr:.4; --brillo:.15; --o1:var(--cdw-coral); --o2:var(--cdw-lila); --o3:var(--cdw-cobalto); --o4:var(--cdw-durazno)}
+.cdw-avatar > span:not(.cdw-orbe){position:absolute; inset:0; display:grid; place-items:center; z-index:3; font:300 26px/1 var(--cdw-f-display); letter-spacing:-.04em; color:#fff; text-shadow:0 1px 12px rgba(50,36,100,.35)}
+.cdw-persona h3, .cdw-evento h3{margin:0 0 4px; font:400 22px/1.15 var(--cdw-f-display); letter-spacing:-.025em}
+.cdw-persona p, .cdw-evento p{margin:0 0 14px; font-size:14px; color:var(--cdw-gris)}
+
+/* ---------- evento ---------- */
+.cdw-evento > .cdw-orbe{width:104px; margin:0 0 14px -4px; --bl:11px; --o1:var(--cdw-lila); --o2:var(--cdw-coral); --o3:var(--cdw-cielo); --o4:var(--cdw-mantequilla)}
+
+/* ---------- banner de sección (16:3) ---------- */
+.cdw-banner{position:relative; aspect-ratio:16/3; border-radius:var(--cdw-r-xl); overflow:hidden; background:var(--cdw-blanco); display:flex; align-items:center}
+.cdw-banner-orbes{position:absolute; inset:0; display:flex; align-items:center; justify-content:flex-end; gap:2.2%; padding-right:3%}
+.cdw-banner-orbes .cdw-orbe{position:relative; width:9.5%; --bl:6px; --gr:.4}
+.cdw-banner-txt{position:relative; z-index:3; padding-left:5%}
+.cdw-banner-txt h2, .cdw-banner-txt h3{margin:8px 0 0; font:300 38px/1 var(--cdw-f-display); letter-spacing:-.04em}
+
+/* ---------- logotipo y monograma ---------- */
+.cdw-logo{display:flex; align-items:center; gap:22px; color:var(--cdw-grafito)}
+.cdw-logo > .cdw-orbe{width:84px; --bl:7px; --gr:.45}
+.cdw-logo-txt{font:300 46px/.95 var(--cdw-f-display); letter-spacing:-.045em}
+.cdw-logo-txt small{display:flex; align-items:center; gap:10px; margin-top:12px; font:500 13px/1 var(--cdw-f-mono); letter-spacing:.32em}
+.cdw-logo-txt small::before{content:""; width:28px; height:1px; background:currentColor}
+.cdw-sublogo{display:flex; align-items:center; gap:10px; font:300 22px/1 var(--cdw-f-display); letter-spacing:-.03em}
+.cdw-sublogo > .cdw-orbe{width:30px; --bl:3px; --gr:0}
+.cdw-sublogo--dt > .cdw-orbe{--o1:var(--cdw-lila); --o2:var(--cdw-cielo); --o3:var(--cdw-durazno); --o4:var(--cdw-mantequilla)}
+.cdw-sublogo--bim > .cdw-orbe{--o1:var(--cdw-cielo); --o2:var(--cdw-cobalto); --o3:var(--cdw-lila); --o4:var(--cdw-cielo)}
+.cdw-sublogo--rc > .cdw-orbe{--o1:var(--cdw-menta); --o2:var(--cdw-cielo); --o3:var(--cdw-menta); --o4:var(--cdw-lila)}
+.cdw-monograma{--s:128px; position:relative; width:var(--s); height:var(--s); border-radius:calc(var(--s) * .26); overflow:hidden; display:grid; place-items:center; flex:none;
+  background:radial-gradient(circle at 22% 18%, var(--cdw-durazno), transparent 62%), linear-gradient(150deg, var(--cdw-durazno), var(--cdw-lila) 58%, var(--cdw-cielo))}
+.cdw-monograma > .cdw-orbe{width:100%; right:-30%; bottom:-30%; --o1:var(--cdw-coral); --o2:var(--cdw-lila); --o3:var(--cdw-cobalto); --o4:var(--cdw-durazno); --bl:calc(var(--s) * .12)}
+.cdw-monograma > span:not(.cdw-orbe){position:relative; z-index:2; font:300 calc(var(--s) * .36)/1 var(--cdw-f-display); letter-spacing:-.05em; color:#fff; text-shadow:0 1px calc(var(--s) * .08) rgba(40,32,90,.3)}
+
+/* ---------- datos y procesos ---------- */
+.cdw-lienzo{position:relative; aspect-ratio:4/3; border-radius:var(--cdw-r-lg); overflow:hidden; background:var(--cdw-perla)}
+.cdw-lienzo > .cdw-svg, .cdw-lienzo > .cdw-capa-svg{position:absolute; inset:0}
+/* barras de encuesta */
+.cdw-barras{position:absolute; inset:0; display:grid; grid-template-columns:repeat(3,1fr); gap:5%; align-content:center; padding:0 6%}
+.cdw-barra .cdw-esc{display:flex; justify-content:space-between; font:500 11.5px/1 var(--cdw-f-mono); color:#6A6C70; margin-bottom:10px}
+.cdw-barra .cdw-bar{position:relative; display:flex; gap:4px; height:36px}
+.cdw-barra .cdw-bar i{border-radius:var(--cdw-r-full); height:100%}
+.cdw-barra .cdw-bar b{position:absolute; top:-10px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid #45474B; transform:translateX(-50%)}
+.cdw-barra .cdw-num{font:300 64px/1 var(--cdw-f-display); letter-spacing:-.04em; margin-top:28px}
+.cdw-barra .cdw-num span{color:#8E9095}
+.cdw-barra p{margin:8px 0 0; color:var(--cdw-gris); font-size:13px; line-height:1.35}
+/* capas de vidrio */
+.cdw-vidrio{position:absolute; inset:0; perspective:1100px; background:linear-gradient(180deg,var(--cdw-perla),var(--cdw-niebla))}
+.cdw-vidrio .cdw-capa{position:absolute; top:20%; width:34%; height:58%; border-radius:12px; background:rgba(255,255,255,.55); border:1px solid rgba(255,255,255,.85); box-shadow:0 18px 40px -22px rgba(0,0,0,.35); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); transform:rotateY(-38deg); transform-origin:left center; overflow:hidden; font:500 10px/1.3 var(--cdw-f-mono); letter-spacing:.08em; color:#55575C; padding:10px}
+.cdw-vidrio .cdw-capa div{font:300 40px/1 var(--cdw-f-display); letter-spacing:-.04em; color:var(--cdw-grafito); margin-top:14px}
