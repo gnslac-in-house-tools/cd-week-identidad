@@ -148,7 +148,7 @@
 .cdw-banner{position:relative; aspect-ratio:16/3; border-radius:var(--cdw-r-xl); overflow:hidden; background:var(--cdw-blanco); display:flex; align-items:center}
 .cdw-banner-orbes{position:absolute; inset:0; display:flex; align-items:center; justify-content:flex-end; gap:2.2%; padding-right:3%}
 .cdw-banner-orbes .cdw-orbe{position:relative; width:9.5%; --bl:6px; --gr:.4}
-.cdw-banner-txt{position:relative; z-index:3; padding-left:5%}
+.cdw-banner-txt{position:relative; z-index:3; padding-left:5%; max-width:24%}  /* el título no llega a los orbes */
 .cdw-banner-txt h2, .cdw-banner-txt h3{margin:8px 0 0; font:300 38px/1 var(--cdw-f-display); letter-spacing:-.04em}
 
 /* ---------- logotipo y monograma ---------- */
