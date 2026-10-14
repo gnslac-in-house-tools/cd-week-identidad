@@ -36,6 +36,8 @@ En Claude, un **sistema de diseño** guarda colores, letras, componentes y regla
 
 Necesitas un plan Pro, Max, Team o Enterprise. En Enterprise, los sistemas de diseño vienen apagados hasta que un owner de tu organización los activa.
 
+Si estás en la misma organización de Claude que el equipo de Computational Design LATAM, no necesitas nada de esto: pide que te compartan el sistema de diseño «CD Week» y aparecerá en **Settings › Design systems**.
+
 ### Opción A · Con el link de este repositorio
 
 1. En **Claude Design** (claude.ai/design), al crear o configurar tu sistema de diseño, vincula este repositorio: `https://github.com/gnslac-in-house-tools/cd-week-identidad`. Es público, así que no pide permisos.
